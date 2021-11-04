@@ -37,7 +37,7 @@ ENV JAVA_OPTS="-Djenkins.install.runSetupWizard=false -Dfile.encoding=UTF-8"
 ENV JENKINS_UC=http://ftp.yz.yamagata-u.ac.jp/pub/misc/jenkins/updates/
 ENV JENKINS_UC_DOWNLOAD=http://ftp.yz.yamagata-u.ac.jp/pub/misc/jenkins/
 ENV TRY_UPGRADE_IF_NO_MARKER=true
-RUN jenkins-plugin-cli --verbose -f /plugins.txt
+RUN jenkins-plugin-cli --verbose --latest true -f /plugins.txt
 
 COPY ./ssh_config /etc/ssh/ssh_config
 
