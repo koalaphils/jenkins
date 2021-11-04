@@ -1,6 +1,5 @@
 ansicolor
 antisamy-markup-formatter
-aws-java-sdk-core
 bitbucket-oauth
 build-name-setter
 build-pipeline-plugin
