@@ -34,8 +34,8 @@ RUN curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
 COPY ./plugins.txt /plugins.txt
 ENV JAVA_OPTS="-Djenkins.install.runSetupWizard=false -Dfile.encoding=UTF-8"
 #ENV JENKINS_UC=https://updates.jenkins.io/
-ENV JENKINS_UC=http://ftp.yz.yamagata-u.ac.jp/pub/misc/jenkins/updates/
-ENV JENKINS_UC_DOWNLOAD=http://ftp.yz.yamagata-u.ac.jp/pub/misc/jenkins/
+#ENV JENKINS_UC=http://ftp.yz.yamagata-u.ac.jp/pub/misc/jenkins/updates/
+#ENV JENKINS_UC_DOWNLOAD=http://ftp.yz.yamagata-u.ac.jp/pub/misc/jenkins/
 ENV TRY_UPGRADE_IF_NO_MARKER=false
 ENV PLUGINS_FORCE_UPGRADE=false
 RUN jenkins-plugin-cli --verbose -f /plugins.txt
