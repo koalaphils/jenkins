@@ -1,4 +1,7 @@
-FROM jenkins/jenkins:lts
+FROM jenkins/jenkins:lts-jdk11
+LABEL description="Jenkins LTS image with plugins pre-installed" \
+     "com.koalaphils.vendor"="Koala Software Technology Innovations" \
+     "com.koalaphils.image.author"="mdprotacio@outlook.com"
 
 USER root
 ENV TZ=Asia/Manila
@@ -15,7 +18,7 @@ RUN apt-get update -y \
     software-properties-common \
     sudo \
     tzdata
- 
+
 RUN curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add - \
   && add-apt-repository \
   "deb [arch=amd64] https://download.docker.com/linux/debian \
@@ -30,9 +33,11 @@ RUN curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
 
 COPY ./plugins.txt /plugins.txt
 ENV JAVA_OPTS="-Djenkins.install.runSetupWizard=false -Dfile.encoding=UTF-8"
-ENV JENKINS_UC_DOWNLOAD=http://mirrors.jenkins-ci.org
+#ENV JENKINS_UC=https://updates.jenkins.io/
+ENV JENKINS_UC=http://ftp.yz.yamagata-u.ac.jp/pub/misc/jenkins/updates/
+ENV JENKINS_UC_DOWNLOAD=http://ftp.yz.yamagata-u.ac.jp/pub/misc/jenkins/
 ENV TRY_UPGRADE_IF_NO_MARKER=true
-RUN jenkins-plugin-cli --latest true -f /plugins.txt
+RUN jenkins-plugin-cli --verbose -f /plugins.txt
 
 COPY ./ssh_config /etc/ssh/ssh_config
 

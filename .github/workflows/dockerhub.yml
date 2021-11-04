@@ -2,7 +2,7 @@
 
 name: CI to Docker Hub
 
-# Controls when the action will run. 
+# Controls when the action will run.
 on:
   # Triggers the workflow on push or pull request events but only for the master branch
   push:
@@ -48,8 +48,8 @@ jobs:
           file: ./Dockerfile
           builder: ${{ steps.buildx.outputs.name }}
           platforms: linux/amd64
-          cache-from: type=local,src=/tmp/.buildx-cache
-          cache-to: type=local,dest=/tmp/.buildx-cache
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
           push: true
-          tags: koalaphils/jenkins:latest
+          tags: ${{ secrets.DOCKERHUB_ACCOUNT }}/jenkins:latest
 
