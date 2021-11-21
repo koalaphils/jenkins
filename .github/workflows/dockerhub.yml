@@ -49,8 +49,8 @@ jobs:
           file: ./Dockerfile
           builder: ${{ steps.buildx.outputs.name }}
           platforms: linux/amd64
-          cache-from: type=gha
-          cache-to: type=gha,mode=max
+          cache-from: type=registry,ref=ghcr.io/${{ github.repository_owner }}/cache/jenkins:latest
+          cache-to: type=registry,mode=max,ref=ghcr.io/${{ github.repository_owner }}/cache/jenkins:latest
           push: true
           tags: |
             ${{ github.repository_owner }}/jenkins:latest
