@@ -1,5 +1,5 @@
 FROM jenkins/jenkins:lts-jdk11
-LABEL description="Jenkins LTS image with plugins pre-installed" \
+LABEL org.opencontainers.image.description="Jenkins LTS image with plugins pre-installed" \
      "com.koalaphils.vendor"="Koala Software Technology Innovations" \
      "com.koalaphils.image.author"="mdprotacio@outlook.com"
 
