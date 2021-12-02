@@ -5,7 +5,7 @@ bitbucket-oauth
 build-name-setter
 build-pipeline-plugin
 build-publisher
-credentials:2.6.1
+credentials
 codedeploy
 description-setter
 ec2-fleet
